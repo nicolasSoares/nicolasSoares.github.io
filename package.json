@@ -1,0 +1,22 @@
+{
+	"name": "hyperdev-persistence-example",
+	"version": "0.0.1",
+	"description": "Demonstrate the DynamoDB available in HyperDev",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"hyperweb": "^0.0.13",
+		"nunjucks": "^2.4.2",
+		"aws-sdk": "^2.4.6",
+		"synchronize": "^0.9.14",
+		"synchronise": "^1.0.8"
+	},
+	"keywords": [
+		"node",
+		"hyperdev",
+		"express"
+	],
+	"license": "MIT"
+}
