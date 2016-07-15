@@ -1,18 +1,11 @@
-<!-- This is a static file -->
-<!-- served from your routes in server.js -->
-
-<!-- You might want to try something fancier: -->
-<!-- html/nunjucks docs: http://mozilla.github.io/nunjucks/ -->
-<!-- jade: http://jade-lang.com/ -->
-<!-- haml: http://haml.info/tutorial.html -->
-<!-- hbs(handlebars): http://handlebarsjs.com/expressions.html -->
+<!-- view template -->
+<!-- called from your routes in server.js -->
+<!-- templating docs: http://mozilla.github.io/nunjucks/ -->
 
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to HyperDev!</title>
-    <meta name="description" content="A cool thing made with HyperDev">
-    <link id="favicon" rel="icon" href="https://hyperdev.com/favicon.ico" type="image/x-icon">
+    <title>MyHN</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,34 +14,53 @@
   <body>
     <header>
       <h1>
-        A Dream of the Future
+        WELCOME TO MyHN !
       </h1>
     </header>
 
-    <main>
-      <p class="bold">Oh hi,</p>
-      <p>Tell me your hopes and dreams:</p>
-      <form>
-        <input type="text" maxlength="100" placeholder="Dreams!">
-        <button type="submit">Submit</button>
+    <section class="add-new-link">
+      <h2>
+        Add A Link
+      </h2>
+      <form action="/links" method="post">
+          <input name="title" placeholder="Link">
+        <button type="submit" class="button">
+          Add Link
+        </button>
       </form>
-      <section class="dreams">
-        <ul id="dreams">
-        </ul>
-      </section>
-    </main>
+      <p>
+        <a href="/delete">
+          Delete All Posts
+        </a>
+        <a href="/dump" target="_new">
+          Dump Posts
+        </a>
+        <a href="/reset">
+          Reset App
+        </a>
+      </p>
+    </section>
 
+    <hr>
+
+    <h2>
+      Links
+    </h2>
+    <main>
+      {% for link in links %}
+          <article>
+            <p>
+              {{link}}
+            </p>
+          </article>
+      {% endfor %}
+    </main>
+    
     <footer>
-      <a href="https://hyperdev.com">
+      <a href="https://hyperdev.com/#!/project/typhoon-pine">
         Remix this in HyperDev
       </a>
-    </footer>
-
-    <!-- Your web-app is https, so your scripts need to be too -->
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
-            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-            crossorigin="anonymous"></script>
-    <script src="/client.js"></script>
-
+    </footer>    
+    
   </body>
 </html>
