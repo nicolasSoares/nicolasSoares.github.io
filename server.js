@@ -20,11 +20,11 @@ app.get("/", function (request, response) {
   }
 });
 
-app.post("/posts", function (request, response) {
+app.post("/links", function (request, response) {
   try {
-    var posts = datastore.get("posts");
-    posts.push(request.body);
-    datastore.set("posts", posts);
+    var links = datastore.get("links");
+    links.push(request.body);
+    datastore.set("links", links);
     response.redirect("/");
   } catch (err) {
     handleError(err, response);
@@ -42,7 +42,7 @@ app.get("/reset", function (request, response) {
 
 app.get("/delete", function (request, response) {
   try {
-    datastore.set("posts", []);
+    datastore.set("links", []);
     response.redirect("/");
   } catch (err) {
     handleError(err, response);
